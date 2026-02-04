@@ -145,8 +145,11 @@ window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     // Stash the event so it can be triggered later.
     deferredPrompt = e;
-    // Update UI to notify the user they can add to home screen
+    // Show Floating Prompt
     installBox.style.display = 'flex';
+    // Also show the Manual Button in options (as a backup)
+    const manualBtn = document.getElementById('manual-install-btn');
+    if (manualBtn) manualBtn.style.display = 'block';
 });
 
 function installApp() {
