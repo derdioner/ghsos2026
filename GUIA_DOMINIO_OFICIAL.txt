@@ -1,0 +1,41 @@
+================================================================
+ GUIA PARA CONECTAR: emergencia.ieegenaroherrera.com
+================================================================
+
+Para usar tu dominio oficial, debes configurar dos cosas:
+1. En Firebase (Para que sepa que debe recibir tráfico de ese dominio)
+2. En tu proveedor de Dominio (Para decir a internet adónde ir)
+
+PASO 1: EN FIREBASE
+----------------------------------------------------------------
+1. Entra a: https://console.firebase.google.com/project/genaro-sos2026/hosting/sites
+2. Verás un botón que dice "Agregar dominio personalizado".
+3. Escribe: emergencia.ieegenaroherrera.com
+4. Clic en "Continuar".
+5. Firebase te dará unos valores (generalmente registros TXT o CNAME).
+
+PASO 2: EN TU PROVEEDOR DE DOMINIO (Donde compraste el dominio)
+----------------------------------------------------------------
+1. Entra a la configuración DNS de ieegenaroherrera.com.
+2. Agrega el registro que te dió Firebase.
+   
+   Lo más probable es que te pida agregar registros "A" o un "CNAME".
+   
+   Si es CNAME:
+   - Host/Nombre: emergencia
+   - Valor/Destino: genaro-sos2026.web.app
+
+   Si son registros A (IPs):
+   - Host/Nombre: emergencia
+   - Valor: (Las IPs que te dicte Firebase, suelen ser 199.36.158.100)
+
+PASO 3: ESPERAR
+----------------------------------------------------------------
+Una vez configurado, puede tardar de 1 hora a 24 horas en propagarse.
+Firebase te mostrará un certificado SSL (candadito) automáticamente cuando esté listo.
+
+================================================================
+IMPORTANTE: Como es un proyecto NUEVO, es posible que Firebase te pida
+verificar primero que eres dueño de "ieegenaroherrera.com" agregando
+un registro TXT. Sigue las instrucciones en pantalla.
+================================================================
