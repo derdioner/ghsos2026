@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Genaro SOS | Alerta de Emergencia</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0288D1">
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Header -->
+        <header>
+            <img src="logo.png" alt="Logo Genaro" class="school-logo">
+            <div class="header-text">
+                <h1>I.E.E. GENARO HERRERA</h1>
+                <h2>SISTEMA DE EMERGENCIA</h2>
+            </div>
+        </header>
+
+        <!-- Location Status -->
+        <div id="location-bar" class="location-bar">
+            📍 <span id="gps-status">Detectando ubicación...</span>
+        </div>
+
+        <!-- MAIN SCREEN -->
+        <div id="main-screen">
+            <button id="sos-btn" class="sos-btn pulse-animation" onclick="activateEmergencyMode()">
+                S.O.S.
+                <span class="subtext">PRESIONE EN CASO DE EMERGENCIA</span>
+            </button>
+            <p class="instruction">Toque el botón rojo para pedir ayuda inmediata</p>
+        </div>
+
+        <!-- EMERGENCY OPTIONS (Hidden Initially) -->
+        <div id="options-screen" style="display:none;">
+            <p class="voice-instruction">SELECCIONE EL TIPO DE EMERGENCIA:</p>
+
+            <div class="grid-buttons">
+                <!-- AMBULANCIA (Ej: SAMU 106) -->
+                <a href="tel:106" class="emergency-card ambulance" onclick="speak('Llamando a Ambulancia')">
+                    🚑
+                    <span>AMBULANCIA</span>
+                </a>
+
+                <!-- POLICÍA (105) -->
+                <a href="tel:105" class="emergency-card police" onclick="speak('Llamando a la Policía')">
+                    🚓
+                    <span>POLICÍA</span>
+                </a>
+
+                <!-- SERENAZGO (Ejemplo ficticio, editable) -->
+                <a href="tel:911" class="emergency-card serenazgo" onclick="speak('Llamando a Serenazgo')">
+                    👮
+                    <span>SERENAZGO</span>
+                </a>
+
+                <!-- BOMBEROS (116) -->
+                <a href="tel:116" class="emergency-card fire" onclick="speak('Llamando a Bomberos')">
+                    🚒
+                    <span>BOMBEROS</span>
+                </a>
+            </div>
+
+            <!-- EXTRA: SIRENA -->
+            <button class="siren-btn" onclick="toggleSiren()">
+                🔊 ACTIVAR SIRENA DE PÁNICO
+            </button>
+
+            <button class="back-btn" onclick="resetApp()">↩ Volver</button>
+        </div>
+
+        <!-- Installation Prompt -->
+        <div id="install-prompt" class="install-prompt" style="display:none;">
+            <p>📲 Instalar App de Emergencia</p>
+            <button onclick="installApp()">INSTALAR</button>
+            <button class="close-install" onclick="closeInstall()">✖</button>
+        </div>
+
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="siren-audio" loop>
+        <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+        <!-- Placeholder sound, we can use synthetic web audio API later -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
