@@ -41,6 +41,22 @@ header {
     display: flex;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    /* Push install button to right */
+}
+
+.header-install-btn {
+    background: white;
+    color: var(--primary-blue);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+    /* Ensure it sticks to right */
 }
 
 .school-logo {
